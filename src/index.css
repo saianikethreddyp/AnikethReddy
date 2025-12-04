@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Outfit', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Light Mode (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --text-primary: #09090b;
+  --text-muted: #71717a;
+  --accent: #000000;
+  --outline-color: rgba(0, 0, 0, 0.2);
+
+  color-scheme: light;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark {
+  /* Dark Mode */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #f8fafc;
+  --text-muted: #888888;
+  --accent: #ffffff;
+  --outline-color: rgba(255, 255, 255, 0.2);
+
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px var(--outline-color);
+    color: transparent;
+  }
+}
